@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Onliner Web Suite">
+    <test name="Onliner Web Test" parallel="none">
+        <classes>
+            <class name="com.solvd.onlinerwebtesting.OnlinerTest">
+                <methods>
+                    <include name="checkNewsHoverAppearsTest"/>
+                    <include name="checkPlaceAdRedirectsTest"/>
+                    <include name="checkSearchSuggestionsContainsTextTest"/>
+                    <include name="checkIsSubmitLoginButtonPresentTest"/>
+                    <include name="checkBestExchangeRateUsedInCalculationTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

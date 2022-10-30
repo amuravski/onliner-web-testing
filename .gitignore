@@ -1,0 +1,12 @@
+/log
+/out
+/target
+/.idea
+/reports
+ssh*
+*.iml
+*.log
+*.txt
+*.bat
+*.exe
+*.jar
