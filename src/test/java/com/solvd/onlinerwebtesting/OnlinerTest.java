@@ -17,8 +17,9 @@ public class OnlinerTest implements IAbstractTest {
     public void checkNewsHoverAppearsTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        Assert.assertTrue(homePage.getNewsNavigationElement().isPresent(1));
-        homePage.getNewsNavigationElement().hover();
+        if (homePage.getNewsNavigationElement().isPresent(1)) {
+            homePage.getNewsNavigationElement().hover();
+        }
         Assert.assertTrue(homePage.getNewsHoverElement().isVisible());
     }
 
@@ -27,10 +28,11 @@ public class OnlinerTest implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         RealEstatePage realEstatePage;
         homePage.open();
-        Assert.assertTrue(homePage.getRealEstateNavigationElement().isPresent(1));
-        homePage.getRealEstateNavigationElement().click();
-        realEstatePage = homePage.navigateToRealEstatePage();
-        realEstatePage.getPlaceAdButton().click();
+        if (homePage.getRealEstateNavigationElement().isPresent(1)) {
+            homePage.getRealEstateNavigationElement().click();
+            realEstatePage = homePage.navigateToRealEstatePage();
+            realEstatePage.getPlaceAdButton().click();
+        }
         Assert.assertTrue(getDriver().getPageSource().contains("Вход"));
     }
 
@@ -38,14 +40,14 @@ public class OnlinerTest implements IAbstractTest {
     public void checkSearchSuggestionsContainsTextTest(String text) {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        Assert.assertTrue(homePage.getSearchBar().isPresent(1));
-        homePage.typeInSearch(text);
-        homePage.switchToSearchFrame();
-        SoftAssert softAssert = new SoftAssert();
-        homePage.getSearchSuggestionCategories()
-                .forEach(category -> softAssert.assertTrue(category.getText().contains(text)));
-        softAssert.assertAll();
-
+        if (homePage.getSearchBar().isPresent(1)) {
+            homePage.typeInSearch(text);
+            homePage.switchToSearchFrame();
+            SoftAssert softAssert = new SoftAssert();
+            homePage.getSearchSuggestionCategories()
+                    .forEach(category -> softAssert.assertTrue(category.getText().contains(text)));
+            softAssert.assertAll();
+        }
     }
 
     @Test

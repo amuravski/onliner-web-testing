@@ -10,10 +10,10 @@ public class RatesPage  extends AbstractPage {
     @FindBy(xpath = "//input[@name='amount-in']")
     private ExtendedWebElement exchangeAmountInput;
 
-    @FindBy(xpath = "//p[contains(text(), 'курсу')]//b")
+    @FindBy(xpath = "//li[@class='bank to-be-removed']//b")
     private ExtendedWebElement bestRate;
 
-    @FindBy(xpath = "//b[contains(@class,'result')]")
+    @FindBy(xpath = "//*[@class='js-cur-result']")
     private ExtendedWebElement exchangeResult;
 
     public RatesPage(WebDriver driver) {

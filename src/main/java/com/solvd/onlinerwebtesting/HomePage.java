@@ -9,22 +9,25 @@ import java.util.List;
 
 public class HomePage extends AbstractPage {
 
-    @FindBy(xpath = "//span[text()='Новости']/ancestor::a[contains(@class, 'navigation')]")
+    @FindBy(xpath = "//span[@class='b-main-navigation__text'][text()='Новости']/..")
     private ExtendedWebElement newsNavigationElement;
 
-    @FindBy(xpath = "//span[text()='Новости']/ancestor::a[contains(@class, 'navigation')]/..//div[contains(@class, 'dropdown_visible')]")
+    @FindBy(xpath = "//div[@class='b-main-navigation__dropdown b-main-navigation__dropdown_visible']")
     private ExtendedWebElement newsHoverElement;
 
-    @FindBy(xpath = "//span[text()='Дома и квартиры']/ancestor::a[contains(@class, 'navigation')]")
+    @FindBy(xpath = "//span[@class='b-main-navigation__text'][text()='Дома и квартиры']/..")
     private ExtendedWebElement realEstateNavigationElement;
 
-    @FindBy(xpath = "//input[contains(@class, 'search__input')][contains(@placeholder, 'Поиск в Каталоге')]")
+    @FindBy(xpath = "//input[@class='fast-search__input']")
     private ExtendedWebElement searchBar;
 
-    @FindBy(xpath = "//iframe[contains(@class, 'modal')]")
+    @FindBy(xpath = "//*[@class='no-touch modal-visible modal-iframe-visible']")
+    private ExtendedWebElement searchFrame;
+
+    @FindBy(xpath = "//iframe[@class='modal-iframe']")
     private ExtendedWebElement searchIframe;
 
-    @FindBy(xpath = "//div[contains(@class,'item_category')]")
+    @FindBy(xpath = "//div[@class='result__item result__item_category']")
     private List<ExtendedWebElement> searchSuggestionCategories;
 
     @FindBy(xpath = "//*[text()='Вход']")
@@ -33,7 +36,7 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//button[contains(text(), 'Войти')]")
     private ExtendedWebElement submitLoginButton;
 
-    @FindBy(xpath = "//span[contains(@class,'currency-amount')]/ancestor::a[contains(@class, 'navigation')]")
+    @FindBy(xpath = "//*[@class='_u js-currency-amount']/..")
     private ExtendedWebElement ratesNavigationElement;
 
     public HomePage(WebDriver driver) {
