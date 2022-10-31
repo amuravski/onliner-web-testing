@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class RealEstatePage extends AbstractPage {
 
-    @FindBy(xpath = "//a[@class='project-navigation__button']")
+    @FindBy(xpath = "//a[contains(text(), 'Разместить')]")
     private ExtendedWebElement placeAdButton;
 
     public RealEstatePage(WebDriver driver) {
